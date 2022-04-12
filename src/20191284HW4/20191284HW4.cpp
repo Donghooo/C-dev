@@ -155,7 +155,5 @@ int main()
 
 	delete e1;
 	system("PAUSE");
-	//asdasdasd
-	//asdasdasdsdsadjhsajkdh
 	return 0;
 }
