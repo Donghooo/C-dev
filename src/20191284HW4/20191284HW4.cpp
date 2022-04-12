@@ -35,19 +35,24 @@ Employee::Employee(string name, string position, int year)
 	m_name = name;
 	if (Set_Position(position) == true)
 		m_position = position;
+	else
+		m_position = "ERROR";
 	m_years = year;
 }
 bool Employee::Set_Position(string position)
 {
-	if (position == "사원")		{ m_position = "사원"; m_position_level = 0; }
-	else if (position == "대리")	{ m_position = "대리"; m_position_level = 1; }
-	else if (position == "과장")	{ m_position = "과장"; m_position_level = 2; }
-	else if (position == "차장")	{ m_position = "차장"; m_position_level = 3; }
-	else if (position == "부장")	{ m_position = "부장"; m_position_level = 4; }
-	else if (position == "이사")	{ m_position = "이사"; m_position_level = 5; }
+	if (position == "사원")		{ m_position_level = 0; }
+	else if (position == "대리")	{ m_position_level = 1; }
+	else if (position == "과장")	{ m_position_level = 2; }
+	else if (position == "차장")	{ m_position_level = 3; }
+	else if (position == "부장")	{ m_position_level = 4; }
+	else if (position == "이사")	{ m_position_level = 5; }
 	else m_position_level = -1;
 	if (m_position_level >= 0)
+	{
+		m_position = position;
 		return true;
+	}
 	else return false;
 }
 void Employee::Set_Name(string name)
@@ -76,14 +81,10 @@ int Employee::Get_Salary()
 }
 int Employee::Compute_Salary()
 {
-	if (5 <= m_years && m_years< 10)			
-		m_allowance *= 5;
-	else if (10 <= m_years && m_years < 20)
-		m_allowance *= 10;
-	else if (20 <= m_years && m_years < 30)
-		m_allowance *= 20;
-	else if (30 <= m_years)			
-		m_allowance *= 30;
+	if (5 <= m_years && m_years< 10)		m_allowance *= 5;
+	else if (10 <= m_years && m_years < 20)	m_allowance *= 10;
+	else if (20 <= m_years && m_years < 30)	m_allowance *= 20;
+	else if (30 <= m_years)					m_allowance *= 30;
 	m_gross_salary = m_basic_salary[m_position_level] + 50000 * m_years + m_allowance;
 	return m_gross_salary;
 }
@@ -107,7 +108,13 @@ int main()
 	   함수를 사용하여 동적으로 생성한 객체에 값을 세팅한다. 직급을 세팅할 때는 접근자 함수를 
 	   사용하여 반드시 에러 체크를 한다. 
 	7. 동적으로 생성한 객체의 총 급여를 계산하고 출력한다. 출력할 때 Print_Result()함수를 사용하지 말고
-	   접근자 함수(Get 계열 함수)를 사용해서 출력해야 한다. 출력 형식은 출력 결과 예를 참조한다.*/
+	   접근자 함수(Get 계열 함수)를 사용해서 출력해야 한다. 출력 형식은 출력 결과 예를 참조한다.
+	   
+	   질문 
+	   1.main 의 순서 (동적선언은 포인터 이용 1번 동적선언 2번 포인터?)
+	   2.동적선언의 포인터와 배열의 주소를 치환하는 포인터는 서로 다른 포인터?
+	   3.main에 변수 선언?
+	   */
 
 	Employee e[3];
 	e[0].Employee::Employee("홍길동", "과장", 17);
