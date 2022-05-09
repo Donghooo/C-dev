@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="LinkedDeque.cpp">
+    <ClCompile Include="20191284 김동호 LinkedDeque.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

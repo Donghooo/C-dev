@@ -1,1 +1,2 @@
 C:\Users\kds90\Desktop\대학교\자료구조\LinkedDeque\x64\Debug\LinkedDeque.exe
+C:\Users\kds90\Desktop\대학\C++\C++과제\src\LinkedDeque\x64\Debug\LinkedDeque.exe
